@@ -108,17 +108,28 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {[
+              { id: 1, image: "/img/3d9c3f52-34ec-4738-990d-03f7fe7f43ac.jpg" },
+              { id: 2, image: "/img/5a89e6b2-287a-4463-9f19-0e3e91b6a4a6.jpg" },
+              { id: 3, image: "/img/a67bfb6e-c9e2-4a01-affb-a80f2a5fc65f.jpg" },
+              { id: 4, image: "/img/3d9c3f52-34ec-4738-990d-03f7fe7f43ac.jpg" },
+              { id: 5, image: "/img/5a89e6b2-287a-4463-9f19-0e3e91b6a4a6.jpg" },
+              { id: 6, image: "/img/a67bfb6e-c9e2-4a01-affb-a80f2a5fc65f.jpg" },
+            ].map((item) => (
               <Card
-                key={item}
+                key={item.id}
                 className="group hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
-                <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-t-lg flex items-center justify-center">
-                  <Icon name="Image" size={48} className="text-slate-400" />
+                <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-t-lg overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={`Проект ${item.id}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <CardHeader>
                   <CardTitle className="group-hover:text-blue-600 transition-colors">
-                    Проект {item}
+                    Проект {item.id}
                   </CardTitle>
                   <CardDescription>
                     Современный веб-дизайн с акцентом на пользовательский опыт
